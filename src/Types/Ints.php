@@ -14,24 +14,20 @@ class Ints extends IterList
      * @return $this
      * @throws Exception
      */
-    public function with($arr): self
+    public static function with($arr): self
     {
         $arr = is_array($arr) ? $arr : [$arr];
-        self::throwIfInvalid($arr);
-        return new self($arr);
+        $self = new self(is_array($arr) ? $arr : [$arr]);
+        $self->throwIfInvalid();
+        return $self;
     }
 
     /**
-     * @param array $arr
+     * @param $value
      * @return bool
-     * @throws Exception
      */
-    protected static function throwIfInvalid(array $arr)
+    protected function checkValidity($value): bool
     {
-        foreach ($arr as $v) {
-            if (!is_int($v)) {
-                throw new Exception(sprintf("Invalid type used in %s.", self::class));
-            }
-        }
+        return is_int($value);
     }
 }

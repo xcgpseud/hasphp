@@ -18,10 +18,29 @@ abstract class IterList
         $this->arr = $arr;
     }
 
+    /**
+     * @return array
+     */
     public function get(): array
     {
         return $this->arr;
     }
 
-    abstract protected static function throwIfInvalid(array $arr);
+    /**
+     * @throws Exception
+     */
+    protected function throwIfInvalid()
+    {
+        foreach ($this->arr as $v) {
+            if (!$this->checkValidity($v)) {
+                throw new Exception(sprintf("Invalid type used in %s.", self::class));
+            }
+        }
+    }
+
+    /**
+     * @param $value
+     * @return bool
+     */
+    abstract protected function checkValidity($value): bool;
 }
