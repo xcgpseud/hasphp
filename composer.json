@@ -1,0 +1,13 @@
+{
+    "name": "xcgpseud/hasphp",
+    "description": "Haskell-style List implementations for PHP",
+    "type": "library",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "chrisevans.go",
+            "email": "chrisevans.go@gmail.com"
+        }
+    ],
+    "require": {}
+}
