@@ -9,6 +9,8 @@ abstract class IterList
     /** @var array */
     protected $arr;
 
+    protected $firstType;
+
     /**
      * IterList constructor.
      * @param array $arr
@@ -31,6 +33,11 @@ abstract class IterList
      */
     protected function throwIfInvalid()
     {
+        $first = reset($this->arr);
+        if (is_object($first)) {
+            $this->firstType = gettype($first);
+        }
+
         foreach ($this->arr as $v) {
             if (!$this->checkValidity($v)) {
                 throw new Exception(sprintf("Invalid type used in %s.", self::class));

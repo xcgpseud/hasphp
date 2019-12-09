@@ -16,7 +16,6 @@ class Ints extends IterList
      */
     public static function with($arr): self
     {
-        $arr = is_array($arr) ? $arr : [$arr];
         $self = new self(is_array($arr) ? $arr : [$arr]);
         $self->throwIfInvalid();
         return $self;
