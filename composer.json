@@ -1,13 +1,21 @@
 {
-    "name": "xcgpseud/hasphp",
-    "description": "Haskell-style List implementations for PHP",
-    "type": "library",
-    "license": "mit",
-    "authors": [
-        {
-            "name": "chrisevans.go",
-            "email": "chrisevans.go@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "xcgpseud/hasphp",
+  "description": "Haskell-style List implementations for PHP",
+  "type": "library",
+  "license": "mit",
+  "authors": [
+    {
+      "name": "chrisevans.go",
+      "email": "chrisevans.go@gmail.com"
+    }
+  ],
+  "require": {
+    "phpunit/phpunit": "^8.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "HasPhp\\": "src/",
+      "Tests\\": "tests/"
+    }
+  }
 }
