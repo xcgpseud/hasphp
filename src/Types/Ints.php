@@ -10,13 +10,13 @@ class Ints extends IterList
     use Map, Sum, Abs;
 
     /**
-     * @param $arr
+     * @param array $arr
      * @return $this
      * @throws Exception
      */
-    public static function with($arr): self
+    public static function with(array $arr): self
     {
-        $self = new self(is_array($arr) ? $arr : [$arr]);
+        $self = new self($arr);
         $self->throwIfInvalid();
         return $self;
     }
