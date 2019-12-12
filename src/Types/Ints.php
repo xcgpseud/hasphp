@@ -3,11 +3,11 @@
 namespace HasPhp\Types;
 
 use Exception;
-use HasPhp\Functions\{Map, Sum};
+use HasPhp\Functions\{Abs, Map, Sum};
 
 class Ints extends IterList
 {
-    use Map, Sum;
+    use Map, Sum, Abs;
 
     /**
      * @param $arr
@@ -27,6 +27,6 @@ class Ints extends IterList
      */
     protected function checkValidity($value): bool
     {
-        return is_int($value);
+        return is_int($value) || is_float($value) || is_double($value);
     }
 }
