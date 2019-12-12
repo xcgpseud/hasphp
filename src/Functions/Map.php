@@ -14,10 +14,10 @@ trait Map
 {
     /**
      * @param $fn
-     * @return Map
+     * @return IterList
      * @throws Exception
      */
-    public function map($fn)
+    public function map($fn): IterList
     {
         $out = [];
         foreach ($this->arr as $v) {
