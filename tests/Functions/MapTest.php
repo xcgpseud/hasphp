@@ -14,8 +14,8 @@ class MapTest extends MainTestCase
 {
     public function testIntsMap(): void
     {
-        $fn = function ($v) {
-            return Ints::with($v)->map(function (int $x) { return $x * 2; })->get();
+        $fn = function ($in) {
+            return Ints::with($in)->map(function (int $x) { return $x * 2; })->get();
         };
 
         TestBuilder::make()
@@ -33,8 +33,8 @@ class MapTest extends MainTestCase
 
     public function testStringsMap(): void
     {
-        $fn = function ($v) {
-            return Strings::with($v)->map(function (string $x) { return strrev($x); })->get();
+        $fn = function ($in) {
+            return Strings::with($in)->map(function (string $x) { return strrev($x); })->get();
         };
 
         TestBuilder::make()
@@ -52,8 +52,8 @@ class MapTest extends MainTestCase
 
     public function testObjectsMap(): void
     {
-        $fn = function ($v) {
-            return Objects::with($v)->map(function (Person $x) {
+        $fn = function ($in) {
+            return Objects::with($in)->map(function (Person $x) {
                 $x->age *= 2;
                 return $x;
             })->get();
