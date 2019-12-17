@@ -10,9 +10,7 @@ class SumTest extends MainTestCase
 {
     public function testIntsSum(): void
     {
-        $fn = function ($in) {
-            return Ints::with($in)->sum();
-        };
+        $fn = fn (array $in): int => Ints::with($in)->sum();
 
         TestBuilder::make()
             ->in([])

@@ -12,9 +12,7 @@ class AbsTest extends MainTestCase
 {
     public function testIntsAbs(): void
     {
-        $fn = function ($in) {
-            return Ints::with($in)->abs()->get();
-        };
+        $fn = fn (array $in): array => Ints::with($in)->abs()->get();
 
         TestBuilder::make()
             ->in([])
