@@ -3,11 +3,11 @@
 namespace HasPhp\Types;
 
 use Exception;
-use HasPhp\Functions\{Abs, All, Map, Sum};
+use HasPhp\Functions\{Abs, All, Any, Map, Sum};
 
 class Ints extends IterList
 {
-    use Abs, All, Map, Sum;
+    use Abs, All, Any, Map, Sum;
 
     /**
      * @param array $arr
