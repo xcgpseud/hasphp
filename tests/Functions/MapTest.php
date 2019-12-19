@@ -2,7 +2,6 @@
 
 namespace Tests\Functions;
 
-use Exception;
 use HasPhp\Types\Ints;
 use HasPhp\Types\Objects;
 use HasPhp\Types\Strings;
