@@ -6,33 +6,33 @@ use HasPhp\Types\Ints;
 use Tests\MainTestCase;
 use Tests\TestBuilder;
 
-class AbsTest extends MainTestCase
+class AverageTest extends MainTestCase
 {
-    public function testIntsAbs(): void
+    public function testIntAverage(): void
     {
-        $fn = fn (array $in): array => Ints::with($in)->abs()->get();
+        $fn = fn (array $in): float => Ints::with($in)->average();
 
         TestBuilder::make()
             ->in([])
-            ->expect([])
+            ->expect(0)
             ->fn($fn)
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([1, 2, 3])
-            ->expect([1, 2, 3])
+            ->in([1, 2, 3, 4, 5])
+            ->expect(3)
             ->fn($fn)
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([-2, -1, 0, 1, 2])
-            ->expect([2, 1, 0, 1, 2])
+            ->in([-1, 0, 1])
+            ->expect(0)
             ->fn($fn)
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([-1.1, 1.1, 2.123])
-            ->expect([1.1, 1.1, 2.123])
+            ->in([1, 1.5, 2])
+            ->expect(1.5)
             ->fn($fn)
             ->runTestEquals();
     }
