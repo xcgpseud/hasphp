@@ -3,11 +3,11 @@
 namespace HasPhp\Types;
 
 use Exception;
-use HasPhp\Functions\{All, Any, Break_, Delete, Map};
+use HasPhp\Functions\{All, Any, Break_, Delete, Drop, Map};
 
 class Strings extends IterList
 {
-    use All, Any, Break_, Delete, Map;
+    use All, Any, Break_, Delete, Drop, Map;
 
     /**
      * @param array $arr
