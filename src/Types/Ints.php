@@ -3,7 +3,7 @@
 namespace HasPhp\Types;
 
 use Exception;
-use HasPhp\Functions\{Abs, All, Any, Average, Break_ Map, Sum};
+use HasPhp\Functions\{Abs, All, Any, Average, Break_, Map, Sum};
 
 class Ints extends IterList
 {
