@@ -12,6 +12,7 @@ use HasPhp\Types\IterList;
 trait Sum
 {
     /**
+     * Returns the sum of all values in the initial IterList.
      * @return int
      */
     public function sum(): int

@@ -12,6 +12,8 @@ use HasPhp\Types\IterList;
 trait Break_
 {
     /**
+     * Returns two IterLists as a tuple, where the first one contains all elements in the initial IterList
+     * up until the predicate returns true, and the second one contains everything after that.
      * @param callable $fn
      * @return IterList[]
      */
