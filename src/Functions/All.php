@@ -12,6 +12,7 @@ use HasPhp\Types\IterList;
 trait All
 {
     /**
+     * Returns whether all elements in the IterList match the provided predicate.
      * @param callable $fn
      * @return bool
      */

@@ -11,6 +11,11 @@ use HasPhp\Types\IterList;
  */
 trait Delete
 {
+    /**
+     * Delete the first item in the initial IterList that matches the provided value.
+     * @param $value
+     * @return IterList
+     */
     public function delete($value): IterList
     {
         $deleted = false;

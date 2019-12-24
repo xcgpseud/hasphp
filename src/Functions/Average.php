@@ -12,7 +12,8 @@ use HasPhp\Types\IterList;
 trait Average
 {
     /**
-     * @return int
+     * Returns the average value of all items in the IterList.
+     * @return float
      */
     public function average(): float
     {

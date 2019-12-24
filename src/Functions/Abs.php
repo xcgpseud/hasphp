@@ -13,6 +13,7 @@ use HasPhp\Types\IterList;
 trait Abs
 {
     /**
+     * Returns a new IterList with absolute values of all elements in the initial IterList.
      * @return IterList
      * @throws Exception
      */

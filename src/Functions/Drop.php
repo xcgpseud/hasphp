@@ -12,6 +12,7 @@ use HasPhp\Types\IterList;
 trait Drop
 {
     /**
+     * Return a new IterList with only values from the key of the provided integer and onwards.
      * @param int $from
      * @return IterList
      */

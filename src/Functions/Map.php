@@ -13,6 +13,7 @@ use HasPhp\Types\IterList;
 trait Map
 {
     /**
+     * Returns a new IterList with the provided closure applied to all of the elements of the initial IterList.
      * @param $fn
      * @return IterList
      * @throws Exception

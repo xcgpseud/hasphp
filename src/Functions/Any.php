@@ -11,6 +11,11 @@ use HasPhp\Types\IterList;
  */
 trait Any
 {
+    /**
+     * Returns whether any of the elements in the IterList match the provided predicate.
+     * @param callable $fn
+     * @return bool
+     */
     public function any(callable $fn): bool
     {
         foreach ($this->arr as $v) {
