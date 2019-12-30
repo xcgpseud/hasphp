@@ -11,6 +11,12 @@ use HasPhp\Types\IterList;
  */
 trait DropWhile
 {
+    /**
+     * Return a new IterList with only values that hold while the predicate remains true, followed by the remaining
+     * elements.
+     * @param callable $fn
+     * @return IterList
+     */
     public function dropWhile(callable $fn): IterList
     {
         $out = [];
