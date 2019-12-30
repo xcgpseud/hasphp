@@ -43,17 +43,23 @@ functions on to the end. In order to retrieve the array, use `->get()`
 
 **All functions**
 
-| Function  | Signature                          | Strings | Ints | Objects | Description |
-| --------- | ---------------------------------- | :-----: | :--: | :-----: | :---------: |
-| `Abs`     | `[a] -> [a] `                      | No      | Yes  | No      | Return an IterList containing absolute values. |
-| `All`     | `[a] -> (a -> bool) -> bool`       | Yes     | Yes  | Yes     | Returns true if the predicate applies to every element. |
-| `Any`     | `[a] -> (a -> bool) -> bool`       | Yes     | Yes  | Yes     | Returns true if the predicate applies to any of the elements. |
-| `Average` | `[a] -> a`                         | No      | Yes  | No      | Returns the average of all values. |
-| `Break_`  | `[a] -> (a -> bool) -> ([a], [a])` | Yes     | Yes  | Yes     | Returns a tuple of all elements until the first one that matches the predicate, followed by the remaining elements. |
-| `Delete`  | `[a] -> a -> [a]`                  | Yes     | Yes  | Yes     | Returns an IterList with the first occurrence of the passed value removed. |
-| `Drop`    | `[a] -> Int -> [a]`                | Yes     | Yes  | Yes     | Returns the suffix of xs after the first n elements. |
-| `Map`     | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns an IterList with the passed function applied to every element. |
-| `Sum`     | `[a] -> a`                         | No      | Yes  | No      | Returns the sum of all elements. |
+Signature is in order of the array within the List -> params -> returns as opposed to Haskell's.
+
+i.e. Haskell's filter is `(a -> bool) -> [a] -> [a]` because it's called like so: `filter (even) [5, 1, 2, 7]`
+whereas Hasphp's is `[a] -> (a -> bool) -> [a]` because we define the list prior to the function.
+
+| Function      | Signature                          | Strings | Ints | Objects | Description |
+| ------------- | ---------------------------------- | :-----: | :--: | :-----: | :---------: |
+| `Abs`         | `[a] -> [a] `                      | No      | Yes  | No      | Return an IterList containing absolute values. |
+| `All`         | `[a] -> (a -> bool) -> bool`       | Yes     | Yes  | Yes     | Returns true if the predicate applies to every element. |
+| `Any`         | `[a] -> (a -> bool) -> bool`       | Yes     | Yes  | Yes     | Returns true if the predicate applies to any of the elements. |
+| `Average`     | `[a] -> a`                         | No      | Yes  | No      | Returns the average of all values. |
+| `Break_`      | `[a] -> (a -> bool) -> ([a], [a])` | Yes     | Yes  | Yes     | Returns a tuple of all elements until the first one that matches the predicate, followed by the remaining elements. |
+| `Delete`      | `[a] -> a -> [a]`                  | Yes     | Yes  | Yes     | Returns an IterList with the first occurrence of the passed value removed. |
+| `Drop`        | `[a] -> Int -> [a]`                | Yes     | Yes  | Yes     | Returns the suffix of xs after the first n elements. |
+| `DropWhile`   | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns the suffix of xs after the predicate's first failure. |
+| `Map`         | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns an IterList with the passed function applied to every element. |
+| `Sum`         | `[a] -> a`                         | No      | Yes  | No      | Returns the sum of all elements. |
 
 ---
 
