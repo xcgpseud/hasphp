@@ -58,6 +58,7 @@ whereas Hasphp's is `[a] -> (a -> bool) -> [a]` because we define the list prior
 | `Delete`      | `[a] -> a -> [a]`                  | Yes     | Yes  | Yes     | Returns an IterList with the first occurrence of the passed value removed. |
 | `Drop`        | `[a] -> Int -> [a]`                | Yes     | Yes  | Yes     | Returns the suffix of xs after the first n elements. |
 | `DropWhile`   | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns the suffix of xs after the predicate's first failure. |
+| `Elem`        | `[a] -> a -> bool`                 | Yes     | Yes  | Yes     | Returns true if the IterList contains the element; else false. |
 | `Map`         | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns an IterList with the passed function applied to every element. |
 | `Sum`         | `[a] -> a`                         | No      | Yes  | No      | Returns the sum of all elements. |
 
