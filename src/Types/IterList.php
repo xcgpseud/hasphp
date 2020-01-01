@@ -28,11 +28,6 @@ abstract class IterList
         return $this->arr;
     }
 
-    public function getListType(): string
-    {
-        return get_called_class();
-    }
-
     /**
      * @throws Exception
      */
