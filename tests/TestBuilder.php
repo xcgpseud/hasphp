@@ -40,7 +40,7 @@ class TestBuilder extends TestCase
      * @param $runFn
      * @return $this
      */
-    public function fn ($runFn): self
+    public function fn($runFn): self
     {
         $this->runFn = $runFn;
         return $this;
@@ -53,14 +53,5 @@ class TestBuilder extends TestCase
     {
         $result = call_user_func($this->runFn, $this->in);
         $this->assertEquals($this->expected, $result);
-    }
-
-    /**
-     * Test with expectException on (fn(in), out)
-     */
-    public function runTestException(): void
-    {
-        $this->expectException($this->expected);
-        call_user_func($this->runFn, $this->in);
     }
 }

@@ -7,7 +7,7 @@ use Exception;
 abstract class IterList
 {
     /** @var array */
-    protected $arr;
+    protected array $arr;
 
     protected $firstType;
 
