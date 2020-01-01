@@ -7,7 +7,7 @@ use Exception;
 abstract class IterList
 {
     /** @var array */
-    protected $arr;
+    protected array $arr;
 
     protected $firstType;
 
@@ -26,6 +26,11 @@ abstract class IterList
     public function get(): array
     {
         return $this->arr;
+    }
+
+    public function getListType(): string
+    {
+        return get_called_class();
     }
 
     /**
