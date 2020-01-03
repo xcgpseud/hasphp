@@ -4,7 +4,8 @@ namespace Tests;
 
 class Person
 {
-    public $fName, $lName, $age;
+    public string $fName, $lName;
+    public int $age;
 
     public function __construct(string $fName, string $lName, int $age)
     {

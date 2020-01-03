@@ -4,6 +4,7 @@ namespace Tests\Types;
 
 use Exception;
 use HasPhp\Types\Objects;
+use Tests\Dog;
 use Tests\MainTestCase;
 use Tests\Person;
 
@@ -37,6 +38,15 @@ class ObjectsTest extends MainTestCase
             new Person("Chris", "Evans", 27),
             1,
             2,
+        ]);
+    }
+
+    public function testObjectsDoesNotAcceptMixedObjectTypes(): void
+    {
+        $this->expectException(Exception::class);
+        Objects::with([
+            new Person("Chris", "Evans", 27),
+            new Dog("Saska", "White"),
         ]);
     }
 }
