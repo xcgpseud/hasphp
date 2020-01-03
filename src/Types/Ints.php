@@ -3,8 +3,7 @@
 namespace HasPhp\Types;
 
 use Exception;
-use HasPhp\Functions\{
-    Abs,
+use HasPhp\Functions\{Abs,
     All,
     Any,
     Average,
@@ -20,8 +19,12 @@ use HasPhp\Functions\{
     Foldr1,
     Group,
     GroupBy,
+    Head,
+    Init,
+    Last,
     Map,
-    Sum
+    Sum,
+    Tail
 };
 
 class Ints extends IterList
@@ -42,8 +45,12 @@ class Ints extends IterList
         , Foldr1
         , Group
         , GroupBy
+        , Head
+        , Init
+        , Last
         , Map
-        , Sum;
+        , Sum
+        , Tail;
 
     /**
      * @param array $arr
