@@ -3,8 +3,7 @@
 namespace HasPhp\Types;
 
 use Exception;
-use HasPhp\Functions\{
-    All,
+use HasPhp\Functions\{All,
     Any,
     Break_,
     Delete,
@@ -18,7 +17,11 @@ use HasPhp\Functions\{
     Foldr1,
     Group,
     GroupBy,
-    Map
+    Head,
+    Init,
+    Last,
+    Map,
+    Tail
 };
 
 class Objects extends IterList
@@ -37,7 +40,11 @@ class Objects extends IterList
         , Foldr1
         , Group
         , GroupBy
-        , Map;
+        , Head
+        , Init
+        , Last
+        , Map
+        , Tail;
 
     /**
      * @param array $arr

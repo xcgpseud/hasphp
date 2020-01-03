@@ -17,7 +17,11 @@ use HasPhp\Functions\{All,
     Foldr1,
     Group,
     GroupBy,
-    Map
+    Head,
+    Init,
+    Last,
+    Map,
+    Tail
 };
 
 class Strings extends IterList
@@ -36,7 +40,11 @@ class Strings extends IterList
         , Foldr1
         , Group
         , GroupBy
-        , Map;
+        , Head
+        , Init
+        , Last
+        , Map
+        , Tail;
 
     /**
      * @param array $arr
