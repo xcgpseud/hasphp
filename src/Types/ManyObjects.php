@@ -4,17 +4,8 @@ namespace HasPhp\Types;
 
 use Exception;
 
-class Many extends IterList
+class ManyObjects extends IterList
 {
-    /**
-     * Many constructor.
-     * @param array $arr
-     */
-    public function __construct(array $arr)
-    {
-        parent::__construct($arr);
-    }
-
     /**
      * @param array $arr
      * @return static
@@ -33,10 +24,6 @@ class Many extends IterList
      */
     protected function checkValidity($value): bool
     {
-        return in_array($this->firstType, [
-                ListType::INTS(),
-                ListType::STRINGS(),
-                ListType::OBJECTS(),
-            ]) && get_class($value) == $this->firstType;
+        return get_class($value) == ListType::OBJECTS();
     }
 }

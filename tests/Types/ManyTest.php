@@ -4,10 +4,11 @@ namespace Tests\Types;
 
 use Exception;
 use HasPhp\Types\Ints;
-use HasPhp\Types\Many;
+use HasPhp\Types\ManyInts;
+use HasPhp\Types\ManyObjects;
+use HasPhp\Types\ManyStrings;
 use HasPhp\Types\Objects;
 use HasPhp\Types\Strings;
-use Tests\Dog;
 use Tests\MainTestCase;
 use Tests\Person;
 
@@ -15,7 +16,7 @@ class ManyTest extends MainTestCase
 {
     public function testManyIntsDoesAcceptInts(): void
     {
-        $manyInts = Many::with([
+        $manyInts = ManyInts::with([
             Ints::with([1, 2]),
             Ints::with([3, 4]),
         ]);
@@ -28,7 +29,7 @@ class ManyTest extends MainTestCase
 
     public function testManyStringsDoesAcceptStrings(): void
     {
-        $manyStrings = Many::with([
+        $manyStrings = ManyStrings::with([
             Strings::with(["hello"]),
             Strings::with(["world"]),
         ]);
@@ -41,7 +42,7 @@ class ManyTest extends MainTestCase
 
     public function testManyObjectsDoesAcceptObjects(): void
     {
-        $manyObjects = Many::with([
+        $manyObjects = ManyObjects::with([
             Objects::with([new Person("Chris", "Evans", 27)]),
             Objects::with([new Person("John", "Doe", 30)]),
         ]);
@@ -55,7 +56,7 @@ class ManyTest extends MainTestCase
     public function testManyIntsDoesNotAllowMixed(): void
     {
         $this->expectException(Exception::class);
-        $manyInts = Many::with([
+        $manyInts = ManyInts::with([
             Ints::with([1, 2, 3]),
             Strings::with(["Hello", "World"]),
         ]);
@@ -64,7 +65,7 @@ class ManyTest extends MainTestCase
     public function testManyStringsDoesNotAllowMixed(): void
     {
         $this->expectException(Exception::class);
-        $manyStrings = Many::with([
+        $manyStrings = ManyStrings::with([
             Strings::with(["Hello", "World"]),
             Ints::with([1, 2, 3]),
         ]);
@@ -73,7 +74,7 @@ class ManyTest extends MainTestCase
     public function testManyObjectsDoesNotAllowMixed(): void
     {
         $this->expectException(Exception::class);
-        $manyObjects = Many::with([
+        $manyObjects = ManyObjects::with([
             Objects::with([new Person("Chris", "Evans", 27)]),
             Ints::with([1, 2, 3]),
         ]);
