@@ -30,6 +30,14 @@ abstract class IterList
     }
 
     /**
+     * @return ListType
+     */
+    public function getListType(): ListType
+    {
+        return new ListType(get_called_class());
+    }
+
+    /**
      * @throws Exception
      */
     protected function throwIfInvalid()

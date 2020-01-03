@@ -64,6 +64,8 @@ whereas Hasphp's is `[a] -> (a -> bool) -> [a]` because we define the list prior
 | `Foldr`       | `[a] -> (a -> b -> b) -> b -> b`   | Yes     | Yes  | Yes     | Right fold over the IterList to reduce it to one element with a starting value. |
 | `Foldl1`      | `[a] -> (a -> a -> a) -> a`        | Yes     | Yes  | Yes     | Left fold over the IterList to reduce it to one element. |
 | `Foldr1`      | `[a] -> (a -> a -> a) -> a`        | Yes     | Yes  | Yes     | Right fold over the IterList to reduce it to one element. |
+| `Group`       | `[a] -> [[a]]`                     | Yes     | Yes  | Yes     | Split the IterList into a Many List of IterLists of equal, adjacent elements. |
+| `GroupBy`     | `[a] -> (a -> a -> bool) -> [[a]]` | Yes     | Yes  | Yes     | Split the IterList into a Many List of IterLists of equal, adjacent elements, with a provided equality predicate. |
 | `Map`         | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns an IterList with the passed function applied to every element. |
 | `Sum`         | `[a] -> a`                         | No      | Yes  | No      | Returns the sum of all elements. |
 
