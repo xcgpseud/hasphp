@@ -9,7 +9,8 @@ abstract class IterList
     /** @var array */
     protected array $arr;
 
-    protected $firstType;
+    /** @var string */
+    protected string $firstType;
 
     /**
      * IterList constructor.
@@ -35,7 +36,7 @@ abstract class IterList
     {
         $first = reset($this->arr);
         if (is_object($first)) {
-            $this->firstType = gettype($first);
+            $this->firstType = get_class($first);
         }
 
         foreach ($this->arr as $v) {

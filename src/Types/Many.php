@@ -3,11 +3,17 @@
 namespace HasPhp\Types;
 
 use Exception;
-use HasPhp\Functions\{All, Any, Break_, Delete, Drop, DropWhile, Elem, Filter, Folds, Map};
 
-class Objects extends IterList
+class Many extends IterList
 {
-    use All, Any, Break_, Delete, Drop, DropWhile, Elem, Filter, Folds, Map;
+    /**
+     * Many constructor.
+     * @param array $arr
+     */
+    public function __construct(array $arr)
+    {
+        parent::__construct($arr);
+    }
 
     /**
      * @param array $arr
@@ -27,6 +33,10 @@ class Objects extends IterList
      */
     protected function checkValidity($value): bool
     {
-        return is_object($value) && get_class($value) == $this->firstType;
+        return in_array($this->firstType, [
+                ListType::INTS(),
+                ListType::STRINGS(),
+                ListType::OBJECTS(),
+            ]) && get_class($value) == $this->firstType;
     }
 }
