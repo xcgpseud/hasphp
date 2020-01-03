@@ -3,11 +3,47 @@
 namespace HasPhp\Types;
 
 use Exception;
-use HasPhp\Functions\{Abs, All, Any, Average, Break_, Delete, Drop, DropWhile, Elem, Filter, Folds, Groups, Map, Sum};
+use HasPhp\Functions\{
+    Abs,
+    All,
+    Any,
+    Average,
+    Break_,
+    Delete,
+    Drop,
+    DropWhile,
+    Elem,
+    Filter,
+    Foldl,
+    Foldl1,
+    Foldr,
+    Foldr1,
+    Group,
+    GroupBy,
+    Map,
+    Sum
+};
 
 class Ints extends IterList
 {
-    use Abs, All, Any, Average, Break_, Delete, Drop, DropWhile, Elem, Filter, Folds, Groups, Map, Sum;
+    use   Abs
+        , All
+        , Any
+        , Average
+        , Break_
+        , Delete
+        , Drop
+        , DropWhile
+        , Elem
+        , Filter
+        , Foldl
+        , Foldr
+        , Foldl1
+        , Foldr1
+        , Group
+        , GroupBy
+        , Map
+        , Sum;
 
     /**
      * @param array $arr

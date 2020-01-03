@@ -38,6 +38,24 @@ abstract class IterList
     }
 
     /**
+     * @param array $arr
+     * @return IterList
+     */
+    public function dynamicWith(array $arr): IterList
+    {
+        return call_user_func($this->getListType() . '::with', $arr);
+    }
+
+    /**
+     * @param array $arr
+     * @return IterList
+     */
+    public function dynamicManyWith(array $arr): IterList
+    {
+        return call_user_func(ManyMap::toMany($this->getListType()) . '::with', $arr);
+    }
+
+    /**
      * @throws Exception
      */
     protected function throwIfInvalid()
