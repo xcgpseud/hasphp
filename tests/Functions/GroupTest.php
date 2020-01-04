@@ -60,8 +60,7 @@ class GroupTestTest extends MainTestCase
     {
         $fn = fn(array $in): array => Objects::with($in)->group()->get();
 
-        $chris = new Person("Chris", "Evans", 27);
-        $john = new Person("John", "Doe", 30);
+        [$one, $two] = $this->getFakePeopleWithAges([27, 30]);
 
         TestBuilder::make()
             ->in([])
@@ -70,12 +69,12 @@ class GroupTestTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([$chris, $john, $john, $chris, $chris, $john])
+            ->in([$one, $two, $two, $one, $one, $two])
             ->expect([
-                Objects::with([$chris]),
-                Objects::with([$john, $john]),
-                Objects::with([$chris, $chris]),
-                Objects::with([$john]),
+                Objects::with([$one]),
+                Objects::with([$two, $two]),
+                Objects::with([$one, $one]),
+                Objects::with([$two]),
             ])
             ->fn($fn)
             ->runTestEquals();

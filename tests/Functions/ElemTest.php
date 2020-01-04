@@ -59,8 +59,10 @@ class ElemTest extends MainTestCase
 
     public function testObjectsElem(): void
     {
-        $chris = new Person("Chris", "Evans", 27);
-        $fn = fn(array $in): bool => Objects::with($in)->elem($chris);
+        [$one, $two, $three] = $this->getFakePeople(3);
+        $oneCopy = $this->getNewFakePersonWithAge($one, $one->age);
+
+        $fn = fn(array $in): bool => Objects::with($in)->elem($one);
 
         TestBuilder::make()
             ->in([])
@@ -69,19 +71,13 @@ class ElemTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("Chris", "Evans", 27), // Test no loose equality on objects (same as $chris)
-                new Person("John", "Doe", 30),
-            ])
+            ->in([$oneCopy, $two]) // Test loose equality doesn't match with a copy of $one
             ->expect(false)
             ->fn($fn)
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                $chris,
-                new Person("John", "Doe", 30),
-            ])
+            ->in([$one, $two, $three])
             ->expect(true)
             ->fn($fn)
             ->runTestEquals();

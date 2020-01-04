@@ -14,7 +14,7 @@ trait Last
 {
     /**
      * Returns the last element of the IterList.
-     * @return int|string|null
+     * @return int|string|object|null
      */
     public function last()
     {

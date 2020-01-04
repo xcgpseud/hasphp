@@ -50,6 +50,8 @@ class HeadTestTest extends MainTestCase
     {
         $fn = fn(array $in): ?Person => Objects::with($in)->head();
 
+        [$one, $two, $three] = $this->getFakePeople(3);
+
         TestBuilder::make()
             ->in([])
             ->expect(null)
@@ -57,11 +59,8 @@ class HeadTestTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("Chris", "Evans", 27),
-                new Person("John", "Doe", 30),
-            ])
-            ->expect(new Person("Chris", "Evans", 27))
+            ->in([$one, $two, $three])
+            ->expect($one)
             ->fn($fn)
             ->runTestEquals();
 

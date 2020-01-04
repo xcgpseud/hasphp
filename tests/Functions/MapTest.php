@@ -13,7 +13,7 @@ class MapTest extends MainTestCase
 {
     public function testIntsMap(): void
     {
-        $fn = fn (array $in): array => Ints::with($in)->map(fn (int $i): int => $i * 2)->get();
+        $fn = fn(array $in): array => Ints::with($in)->map(fn(int $i): int => $i * 2)->get();
 
         TestBuilder::make()
             ->in([])
@@ -30,7 +30,7 @@ class MapTest extends MainTestCase
 
     public function testStringsMap(): void
     {
-        $fn = fn (array $in): array => Strings::with($in)->map(fn (string $x): string => strrev($x))->get();
+        $fn = fn(array $in): array => Strings::with($in)->map(fn(string $x): string => strrev($x))->get();
 
         TestBuilder::make()
             ->in([])
@@ -51,7 +51,11 @@ class MapTest extends MainTestCase
             $x->age *= 2;
             return $x;
         };
-        $fn = fn (array $in): array => Objects::with($in)->map($objFn)->get();
+        $fn = fn(array $in): array => Objects::with($in)->map($objFn)->get();
+
+        [$one, $two] = $this->getFakePeopleWithAges([20, 30]);
+        $oneAfter = $this->getNewFakePersonWithAge($one, 40);
+        $twoAfter = $this->getNewFakePersonWithAge($two, 60);
 
         TestBuilder::make()
             ->in([])
@@ -60,14 +64,8 @@ class MapTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("Chris", "Evans", 27),
-                new Person("John", "Doe", 20),
-            ])
-            ->expect([
-                new Person("Chris", "Evans", 54),
-                new Person("John", "Doe", 40),
-            ])
+            ->in([$one, $two])
+            ->expect([$oneAfter, $twoAfter])
             ->fn($fn)
             ->runTestEquals();
     }

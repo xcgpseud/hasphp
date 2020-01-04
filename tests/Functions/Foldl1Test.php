@@ -59,21 +59,19 @@ class Foldl1TestTest extends MainTestCase
         $fnFold = fn(Person $a, Person $b): Person => $a->age > $b->age ? $a : $b;
         $fn = fn(array $in): Person => Objects::with($in)->foldl1($fnFold);
 
+        [$one, $two] = $this->getFakePeopleWithAges([20, 30]);
+
         $this->expectException(Exception::class);
         Objects::with([])->foldl1($fnFold);
 
         TestBuilder::make()
-            ->in([new Person("Chris", "Evans", 27)])
-            ->expect(new Person("Chris", "Evans", 27))
-            ->fn($fn)
+            ->in([$one])
+            ->expect([$one])
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("Chris", "Evans", 27),
-                new Person("John", "Doe", 100),
-            ])
-            ->expect(new Person("John", "Doe", 100))
+            ->in([$one, $two])
+            ->expect([$two])
             ->fn($fn)
             ->runTestEquals();
     }

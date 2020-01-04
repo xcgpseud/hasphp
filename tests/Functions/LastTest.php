@@ -49,8 +49,7 @@ class LastTestTest extends MainTestCase
     {
         $fn = fn(array $in): ?Person => Objects::with($in)->last();
 
-        $chris = new Person("Chris", "Evans", 27);
-        $john = new Person("John", "Doe", 30);
+        [$one, $two, $three, $four] = $this->getFakePeople(4);
 
         TestBuilder::make()
             ->in([])
@@ -59,8 +58,8 @@ class LastTestTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([$chris, $john, $chris, $john])
-            ->expect($john)
+            ->in([$one, $two, $three, $four])
+            ->expect($four)
             ->fn($fn)
             ->runTestEquals();
     }

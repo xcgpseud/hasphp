@@ -60,7 +60,7 @@ class FoldrTestTest extends MainTestCase
 
     public function testObjectsFoldrTest(): void
     {
-        $init = new Person("Chris", "Evans", 27);
+        [$init, $one, $two] = $this->getFakePeopleWithAges([25, 30, 35]);
         $fn = fn(array $in): Person => Objects::with($in)
             ->foldr(fn(Person $a, Person $b): Person => $a->age > $b->age ? $a : $b, $init);;
 
@@ -71,17 +71,14 @@ class FoldrTestTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([new Person("John", "Doe", 100)])
-            ->expect(new Person("John", "Doe", 100))
+            ->in([$two])
+            ->expect($two)
             ->fn($fn)
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("John", "Doe", 100),
-                new Person("Gary", "Oldman", 99),
-            ])
-            ->expect(new Person("John", "Doe", 100))
+            ->in([$one, $two])
+            ->expect($two)
             ->fn($fn)
             ->runTestEquals();
     }

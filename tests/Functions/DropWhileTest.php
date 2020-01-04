@@ -51,6 +51,8 @@ class DropWhileTest extends MainTestCase
     {
         $fn = fn(array $in): array => Objects::with($in)->dropWhile(fn(Person $x): bool => $x->age % 2 == 0)->get();
 
+        [$one, $two, $three, $four] = $this->getFakePeopleWithAges([20, 30, 25, 35]);
+
         TestBuilder::make()
             ->in([])
             ->expect([])
@@ -58,18 +60,9 @@ class DropWhileTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("Chris", "Evans", 20),
-                new Person("John", "Doe", 24),
-                new Person("Jane", "Doe", 25),
-                new Person("Jimbob", "McGee", 26),
-            ])
-            ->expect([
-                new Person("Jane", "Doe", 25),
-                new Person("Jimbob", "McGee", 26),
-            ])
+            ->in([$one, $two, $three, $four])
+            ->expect([$three, $four])
             ->fn($fn)
             ->runTestEquals();
-
     }
 }

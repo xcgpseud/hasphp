@@ -53,23 +53,22 @@ class IntercalateTestTest extends MainTestCase
 
     public function testObjectsIntercalateTest(): void
     {
-        $chris = new Person("Chris", "Evans", 27);
-        $john = new Person("John", "Doe", 30);
+        [$one, $two, $three, $four] = $this->getFakePeople(4);
 
         $fn = fn(array $in): array => Objects::with($in)->intercalate([
-            [$chris, $john],
-            [$john, $chris],
+            [$one, $two],
+            [$three, $four],
         ])->get();
 
         TestBuilder::make()
             ->in([])
-            ->expect([$chris, $john, $john, $chris])
+            ->expect([$one, $two, $three, $four])
             ->fn($fn)
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([$chris, $chris])
-            ->expect([$chris, $john, $chris, $chris, $john, $chris])
+            ->in([$one, $four])
+            ->expect([$one, $two, $one, $four, $three, $four])
             ->fn($fn)
             ->runTestEquals();
     }

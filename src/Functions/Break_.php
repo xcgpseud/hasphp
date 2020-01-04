@@ -32,6 +32,6 @@ trait Break_
             }
         }
 
-        return [$before, $after];
+        return [self::with($before), self::with($after)];
     }
 }
