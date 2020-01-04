@@ -27,6 +27,12 @@ use HasPhp\Functions\{Abs,
     Last,
     Length,
     Map,
+    Maximum,
+    MaximumBy,
+    Minimum,
+    MinimumBy,
+    Nub,
+    Null_,
     Sum,
     Tail
 };
@@ -57,6 +63,12 @@ class Ints extends IterList
         , Last
         , Length
         , Map
+        , Maximum
+        , Minimum
+        , MaximumBy
+        , MinimumBy
+        , Nub
+        , Null_
         , Sum
         , Tail;
 

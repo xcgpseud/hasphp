@@ -15,7 +15,7 @@ trait Foldr1
     /**
      * Iteratively apply $fn from right -> left, returning the final result.
      * @param callable $fn
-     * @return int|mixed|string|null
+     * @return int|mixed|string|Null_
      * @throws Exception
      */
     public function foldr1(callable $fn)

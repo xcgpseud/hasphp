@@ -16,7 +16,7 @@ trait Foldl1
      *
      * Iteratively apply $fn from left -> right, returning the final result.
      * @param callable $fn
-     * @return int|mixed|string|null
+     * @return int|mixed|string|Null_
      * @throws Exception
      */
     public function foldl1(callable $fn)

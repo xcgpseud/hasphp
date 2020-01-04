@@ -25,6 +25,10 @@ use HasPhp\Functions\{All,
     Last,
     Length,
     Map,
+    MaximumBy,
+    MinimumBy,
+    Nub,
+    Null_,
     Tail
 };
 
@@ -52,6 +56,10 @@ class Objects extends IterList
         , Last
         , Length
         , Map
+        , MaximumBy
+        , MinimumBy
+        , Nub
+        , Null_
         , Tail;
 
     /**
