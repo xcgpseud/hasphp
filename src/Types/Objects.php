@@ -20,6 +20,7 @@ use HasPhp\Functions\{All,
     Head,
     Init,
     Inits,
+    Intercalate,
     Last,
     Map,
     Tail
@@ -44,6 +45,7 @@ class Objects extends IterList
         , Head
         , Init
         , Inits
+        , Intercalate
         , Last
         , Map
         , Tail;
