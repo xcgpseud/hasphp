@@ -19,6 +19,7 @@ use HasPhp\Functions\{All,
     GroupBy,
     Head,
     Init,
+    Inits,
     Last,
     Map,
     Tail
@@ -42,6 +43,7 @@ class Strings extends IterList
         , GroupBy
         , Head
         , Init
+        , Inits
         , Last
         , Map
         , Tail;

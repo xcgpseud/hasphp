@@ -21,6 +21,7 @@ use HasPhp\Functions\{Abs,
     GroupBy,
     Head,
     Init,
+    Inits,
     Last,
     Map,
     Sum,
@@ -47,6 +48,7 @@ class Ints extends IterList
         , GroupBy
         , Head
         , Init
+        , Inits
         , Last
         , Map
         , Sum

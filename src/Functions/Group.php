@@ -24,11 +24,11 @@ trait Group
         foreach ($this->arr as $i => $v) {
             $current[] = $v;
             if ($i == count($this->arr) - 1 || $v != $this->arr[$i + 1]) {
-                $out[] = $this->dynamicWith($current);
+                $out[] = self::with($current);
                 $current = [];
             }
         }
 
-        return $this->dynamicManyWith($out);
+        return $this->manyWith($out);
     }
 }

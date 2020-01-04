@@ -29,11 +29,11 @@ trait GroupBy
                 $i == count($this->arr) - 1 ||
                 call_user_func($fn, $current[0], $this->arr[$i + 1]) === false
             ) {
-                $out[] = $this->dynamicWith($current);
+                $out[] = self::with($current);
                 $current = [];
             }
         }
 
-        return $this->dynamicManyWith($out);
+        return $this->manyWith($out);
     }
 }
