@@ -68,6 +68,7 @@ whereas Hasphp's is `[a] -> (a -> bool) -> [a]` because we define the list prior
 | `GroupBy`     | `[a] -> (a -> a -> bool) -> [[a]]` | Yes     | Yes  | Yes     | Split the IterList into a Many List of IterLists of equal, adjacent elements, with a provided equality predicate. |
 | `Head`        | `[a] -> a`                         | Yes     | Yes  | Yes     | Returns the first element of the IterList. |
 | `Init`        | `[a] -> [a]`                       | Yes     | Yes  | Yes     | Returns the IterList without its last element. |
+| `Inits`       | `[a] -> [[a]]`                     | Yes     | Yes  | Yes     | Returns a Many List of initial segments of its argument IterList, shortest first. |
 | `Last`        | `[a] -> a`                         | Yes     | Yes  | Yes     | Returns the last element of the IterList. |
 | `Map`         | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns an IterList with the passed function applied to every element. |
 | `Sum`         | `[a] -> a`                         | No      | Yes  | No      | Returns the sum of all elements. |
