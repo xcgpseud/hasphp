@@ -61,6 +61,8 @@ class FilterTestTest extends MainTestCase
     {
         $fn = fn(array $in): array => Objects::with($in)->filter(fn(Person $x): bool => $x->age > 18)->get();
 
+        [$one, $two, $three, $four] = $this->getFakePeopleWithAges([15, 16, 20, 21]);
+
         TestBuilder::make()
             ->in([])
             ->expect([])
@@ -68,25 +70,14 @@ class FilterTestTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("Child", "One", 5),
-                new Person("John", "Kidd", 7),
-            ])
+            ->in([$one, $two])
             ->expect([])
             ->fn($fn)
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("Child", "One", 5),
-                new Person("Adult", "One", 20),
-                new Person("John", "Kidd", 7),
-                new Person("Chris", "Evans", 27),
-            ])
-            ->expect([
-                new Person("Adult", "One", 20),
-                new Person("Chris", "Evans", 27),
-            ])
+            ->in([$one, $four, $two, $three])
+            ->expect([$four, $three])
             ->fn($fn)
             ->runTestEquals();
     }

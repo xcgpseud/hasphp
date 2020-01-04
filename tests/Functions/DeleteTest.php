@@ -13,7 +13,7 @@ class DeleteTest extends MainTestCase
 {
     public function testIntsDelete(): void
     {
-        $fn = fn (array $in): array => Ints::with($in)->delete(2)->get();
+        $fn = fn(array $in): array => Ints::with($in)->delete(2)->get();
 
         TestBuilder::make()
             ->in([])
@@ -36,7 +36,7 @@ class DeleteTest extends MainTestCase
 
     public function testStringsDelete(): void
     {
-        $fn = fn (array $in): array => Strings::with($in)->delete("hello")->get();
+        $fn = fn(array $in): array => Strings::with($in)->delete("hello")->get();
 
         TestBuilder::make()
             ->in([])
@@ -59,8 +59,8 @@ class DeleteTest extends MainTestCase
 
     public function testObjectsDelete(): void
     {
-        $del = new Person("Chris", "Evans", 27);
-        $fn = fn (array $in): array => Objects::with($in)->delete($del)->get();
+        [$one, $two, $three] = $this->getFakePeopleWithAges([20, 25, 30]);
+        $fn = fn(array $in): array => Objects::with($in)->delete($three)->get();
 
         TestBuilder::make()
             ->in([])
@@ -69,29 +69,14 @@ class DeleteTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("John", "Doe", 20),
-                new Person("Jane", "Doe", 90),
-            ])
-            ->expect([
-                new Person("John", "Doe", 20),
-                new Person("Jane", "Doe", 90),
-            ])
+            ->in([$one, $two])
+            ->expect([$one, $two])
             ->fn($fn)
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([
-                new Person("Chris", "Evans", 27),
-                new Person("John", "Doe", 20),
-                new Person("Jane", "Doe", 90),
-                new Person("Chris", "Evans", 27),
-            ])
-            ->expect([
-                new Person("John", "Doe", 20),
-                new Person("Jane", "Doe", 90),
-                new Person("Chris", "Evans", 27),
-            ])
+            ->in([$three, $one, $two, $three, $three])
+            ->expect([$one, $two, $three, $three])
             ->fn($fn)
             ->runTestEquals();
     }

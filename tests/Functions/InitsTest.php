@@ -66,8 +66,7 @@ class InitsTestTest extends MainTestCase
     {
         $fn = fn(array $in): array => Objects::with($in)->inits()->get();
 
-        $chris = new Person("Chris", "Evans", 27);
-        $john = new Person("John", "Doe", 30);
+        [$one, $two, $three] = $this->getFakePeople(3);
 
         TestBuilder::make()
             ->in([])
@@ -78,12 +77,12 @@ class InitsTestTest extends MainTestCase
             ->runTestEquals();
 
         TestBuilder::make()
-            ->in([$chris, $john, $chris])
+            ->in([$one, $two, $three])
             ->expect([
                 Objects::with([]),
-                Objects::with([$chris]),
-                Objects::with([$chris, $john]),
-                Objects::with([$chris, $john, $chris]),
+                Objects::with([$one]),
+                Objects::with([$one, $two]),
+                Objects::with([$one, $two, $three]),
             ])
             ->fn($fn)
             ->runTestEquals();

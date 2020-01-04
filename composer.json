@@ -11,7 +11,8 @@
   ],
   "require": {
     "phpunit/phpunit": "^8.5",
-    "myclabs/php-enum": "^1.7"
+    "myclabs/php-enum": "^1.7",
+    "fzaninotto/faker": "^1.9"
   },
   "autoload": {
     "psr-4": {
