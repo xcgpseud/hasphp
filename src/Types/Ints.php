@@ -25,6 +25,7 @@ use HasPhp\Functions\{Abs,
     Intercalate,
     Intersperse,
     Last,
+    Length,
     Map,
     Sum,
     Tail
@@ -54,6 +55,7 @@ class Ints extends IterList
         , Intercalate
         , Intersperse
         , Last
+        , Length
         , Map
         , Sum
         , Tail;

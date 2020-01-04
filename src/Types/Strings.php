@@ -23,6 +23,7 @@ use HasPhp\Functions\{All,
     Intercalate,
     Intersperse,
     Last,
+    Length,
     Map,
     Tail
 };
@@ -49,6 +50,7 @@ class Strings extends IterList
         , Intercalate
         , Intersperse
         , Last
+        , Length
         , Map
         , Tail;
 
