@@ -70,6 +70,7 @@ whereas Hasphp's is `[a] -> (a -> bool) -> [a]` because we define the list prior
 | `Init`        | `[a] -> [a]`                       | Yes     | Yes  | Yes     | Returns the IterList without its last element. |
 | `Inits`       | `[a] -> [[a]]`                     | Yes     | Yes  | Yes     | Returns a Many List of initial segments of its argument IterList, shortest first. |
 | `Intercalate` | `[a] -> [[a]] -> [a]`              | Yes     | Yes  | Yes     | Returns a Many List with the method receiver List inserted into the IterList at each step. |
+| `Intersperse` | `[a] -> a -> [a]`                  | Yes     | Yes  | Yes     | Returns the IterList with the provided element between each element. |
 | `Last`        | `[a] -> a`                         | Yes     | Yes  | Yes     | Returns the last element of the IterList. |
 | `Map`         | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns an IterList with the passed function applied to every element. |
 | `Sum`         | `[a] -> a`                         | No      | Yes  | No      | Returns the sum of all elements. |
