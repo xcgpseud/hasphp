@@ -12,10 +12,7 @@ class ObjectsTest extends MainTestCase
 {
     public function testObjectsDoesAcceptObjects(): void
     {
-        $objs = Objects::with([
-            new Person("Chris", "Evans", 27),
-            new Person("John", "Doe", 20),
-        ]);
+        $objs = Objects::with($this->getFakePeople(2));
         $this->assertEquals(2, count($objs->get()));
     }
 
@@ -35,7 +32,7 @@ class ObjectsTest extends MainTestCase
     {
         $this->expectException(Exception::class);
         Objects::with([
-            new Person("Chris", "Evans", 27),
+            $this->getFakePerson(),
             1,
             2,
         ]);
@@ -45,7 +42,7 @@ class ObjectsTest extends MainTestCase
     {
         $this->expectException(Exception::class);
         Objects::with([
-            new Person("Chris", "Evans", 27),
+            $this->getFakePerson(),
             new Dog("Saska", "White"),
         ]);
     }
