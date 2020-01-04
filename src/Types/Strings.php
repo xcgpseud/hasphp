@@ -25,6 +25,12 @@ use HasPhp\Functions\{All,
     Last,
     Length,
     Map,
+    Maximum,
+    MaximumBy,
+    Minimum,
+    MinimumBy,
+    Nub,
+    Null_,
     Tail
 };
 
@@ -52,6 +58,12 @@ class Strings extends IterList
         , Last
         , Length
         , Map
+        , Maximum
+        , Minimum
+        , MaximumBy
+        , MinimumBy
+        , Nub
+        , Null_
         , Tail;
 
     /**

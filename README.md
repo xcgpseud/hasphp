@@ -74,6 +74,12 @@ whereas Hasphp's is `[a] -> (a -> bool) -> [a]` because we define the list prior
 | `Last`        | `[a] -> a`                         | Yes     | Yes  | Yes     | Returns the last element of the IterList. |
 | `Length`      | `[a] -> int`                       | Yes     | Yes  | Yes     | Returns the number of elements in the IterList. |
 | `Map`         | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns an IterList with the passed function applied to every element. |
+| `Maximum`     | `[a] -> a`                         | Yes     | Yes  | No      | Returns the maximum element from the IterList. |
+| `MaximumBy`   | `[a] -> (a -> a -> a) -> a`        | Yes     | Yes  | Yes     | Returns the maximum element from the IterList according to the predicate. |
+| `Minimum`     | `[a] -> a`                         | Yes     | Yes  | No      | Returns the minimum element from the IterList. |
+| `MinimumBy`   | `[a] -> (a -> a -> a) -> a`        | Yes     | Yes  | Yes     | Returns the minimum element from the IterList according to the predicate. |
+| `Nub`         | `[a] -> [a]`                       | Yes     | Yes  | Yes     | Returns the IterList with duplicates removed. |
+| `Null`        | `[a] -> bool`                      | Yes     | Yes  | Yes     | Returns true if the IterList is empty; otherwise false. |
 | `Sum`         | `[a] -> a`                         | No      | Yes  | No      | Returns the sum of all elements. |
 | `Tail`        | `[a] -> [a]`                       | Yes     | Yes  | Yes     | Returns the IterList without its first element. |
 
