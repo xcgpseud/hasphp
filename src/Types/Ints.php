@@ -34,7 +34,9 @@ use HasPhp\Functions\{Abs,
     Nub,
     Null_,
     Sum,
-    Tail
+    Tail,
+    Take,
+    TakeWhile
 };
 
 class Ints extends IterList
@@ -70,7 +72,9 @@ class Ints extends IterList
         , Nub
         , Null_
         , Sum
-        , Tail;
+        , Tail
+        , Take
+        , TakeWhile;
 
     /**
      * @param array $arr

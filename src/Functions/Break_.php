@@ -24,7 +24,7 @@ trait Break_
         $passed = false;
 
         foreach ($this->arr as $v) {
-            if ($passed || call_user_func($fn, $v)) {
+            if ($passed || call_user_func($fn, $v) === true) {
                 $after[] = $v;
                 $passed = true;
             } else {

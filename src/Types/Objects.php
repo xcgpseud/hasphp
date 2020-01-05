@@ -29,8 +29,9 @@ use HasPhp\Functions\{All,
     MinimumBy,
     Nub,
     Null_,
-    Tail
-};
+    Tail,
+    Take,
+    TakeWhile};
 
 class Objects extends IterList
 {
@@ -60,7 +61,9 @@ class Objects extends IterList
         , MinimumBy
         , Nub
         , Null_
-        , Tail;
+        , Tail
+        , Take
+        , TakeWhile;
 
     /**
      * @param array $arr
