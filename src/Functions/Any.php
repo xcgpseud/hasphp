@@ -19,7 +19,7 @@ trait Any
     public function any(callable $fn): bool
     {
         foreach ($this->arr as $v) {
-            if (call_user_func($fn, $v)) {
+            if (call_user_func($fn, $v) === true) {
                 return true;
             }
         }

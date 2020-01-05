@@ -31,8 +31,9 @@ use HasPhp\Functions\{All,
     MinimumBy,
     Nub,
     Null_,
-    Tail
-};
+    Tail,
+    Take,
+    TakeWhile};
 
 class Strings extends IterList
 {
@@ -64,7 +65,9 @@ class Strings extends IterList
         , MinimumBy
         , Nub
         , Null_
-        , Tail;
+        , Tail
+        , Take
+        , TakeWhile;
 
     /**
      * @param array $arr

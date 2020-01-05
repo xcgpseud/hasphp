@@ -23,7 +23,7 @@ trait All
         }
 
         foreach ($this->arr as $v) {
-            if (!call_user_func($fn, $v)) {
+            if (call_user_func($fn, $v) === false) {
                 return false;
             }
         }

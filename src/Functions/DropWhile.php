@@ -23,7 +23,7 @@ trait DropWhile
         $failed = false;
 
         foreach ($this->arr as $v) {
-            if ($failed || !call_user_func($fn, $v)) {
+            if ($failed || call_user_func($fn, $v) === false) {
                 $out[] = $v;
                 $failed = true;
             }

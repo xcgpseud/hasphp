@@ -20,7 +20,7 @@ trait Filter
     {
         $out = [];
         foreach ($this->arr as $v) {
-            if (call_user_func($fn, $v)) {
+            if (call_user_func($fn, $v) === true) {
                 $out[] = $v;
             }
         }

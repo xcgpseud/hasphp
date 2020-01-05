@@ -82,6 +82,8 @@ whereas Hasphp's is `[a] -> (a -> bool) -> [a]` because we define the list prior
 | `Null`        | `[a] -> bool`                      | Yes     | Yes  | Yes     | Returns true if the IterList is empty; otherwise false. |
 | `Sum`         | `[a] -> a`                         | No      | Yes  | No      | Returns the sum of all elements. |
 | `Tail`        | `[a] -> [a]`                       | Yes     | Yes  | Yes     | Returns the IterList without its first element. |
+| `Take`        | `[a] -> int -> [a]`                | Yes     | Yes  | Yes     | Returns an IterList with only the first n elements, where n is specified. |
+| `TakeWhile`   | `[a] -> (a -> bool) -> [a]`        | Yes     | Yes  | Yes     | Returns an IterList with all elements until the predicate fails. |
 
 ---
 
