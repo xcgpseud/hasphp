@@ -11,7 +11,9 @@ There are 2 primary ideas behind this library.
 With HasPHP, these have been combined.
 
 #### Installation
-> To come in the future; this will be a composer package when it's in a usable state.
+With composer installed, in your project type:
+
+`composer require xcgpseud/hasphp`
 
 ---
 
